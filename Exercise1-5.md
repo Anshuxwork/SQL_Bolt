@@ -43,3 +43,39 @@ SELECT title ,year FROM movies;
 ~~~sql 
 SELECT * FROM movies;
 ~~~
+
+# EXERCISE - 2
+
+## 1. Find the movie with a row id of 6 
+~~~sql
+SELECT * FROM Movies where id = 6;
+~~~
+## 2. Find the movies released in the years between 2000 and 2010 
+~~~sql
+SELECT * FROM Movies where year between 2000 and 2010;
+~~~
+## 3. Find the movies not released in the years between 2000 and 2010
+~~~sql
+SELECT * FROM Movies where year not between 2000 and 2010;
+~~~
+## 4. Find the first 5 Pixar movies and their release year
+~~~sql
+SELECT  Title, Year FROM Movies where Id between 1 and 5;
+~~~
+# EXERCISE-3
+## 1. Find all the Toy Story movies
+~~~sql
+SELECT Title FROM Movies Where Title LIKE"toy%";
+~~~
+## 2. Find all the movies directed by John Lasseter
+~~~sql
+SELECT title, director FROM movies WHERE director = "John Lasseter";
+~~~
+## 3. Find all the movies (and director) not directed by John Lasseter
+~~~sql
+SELECT title, director FROM movies WHERE director != "John Lasseter";
+~~~
+## 4. Find all the WALL-* movies
+~~~sql
+
+~~~
