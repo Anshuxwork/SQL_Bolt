@@ -77,5 +77,104 @@ SELECT title, director FROM movies WHERE director != "John Lasseter";
 ~~~
 ## 4. Find all the WALL-* movies
 ~~~sql
+SELECT * FROM movies 
+WHERE title LIKE "WALL-_";
+~~~
 
+# EXERCISE-4
+## 1. List all directors of Pixar movies (alphabetically), without duplicates 
+~~~sql
+SELECT DISTINCT director FROM movies
+ORDER BY director ASC;
+~~~
+## 2. List the last four Pixar movies released (ordered from most recent to least)
+~~~sql
+SELECT title, year FROM movies
+ORDER BY year DESC
+LIMIT 4;
+~~~
+## 3. List the first five Pixar movies sorted alphabetically
+~~~sql
+SELECT title FROM movies
+ORDER BY title ASC
+LIMIT 5;
+~~~
+## 5. List the next five Pixar movies sorted alphabetically
+~~~sql
+SELECT title FROM movies
+ORDER BY title ASC
+LIMIT 5 OFFSET 5;
+~~~
+
+# EXERCISE-5
+## 1. List all the Canadian cities and their populations
+~~~sql
+SELECT City, 	population 
+FROM north_american_cities
+WHERE Country = 'Canada' ;
+
+~~~
+## 2. Order all the cities in the United States by their latitude from north to south
+~~~
+SELECT City, Latitude 
+FROM north_american_cities
+WHERE Country = 'United States'
+Order by Latitude DESC;
+~~~
+## 3. List all the cities west of Chicago, ordered from west to east
+~~~sql
+SELECT city, longitude FROM north_american_cities
+WHERE longitude < -87.629798
+ORDER BY longitude ASC;
+~~~
+## 4. List the two largest cities in Mexico (by population)
+~~~sql
+SELECT city, population 
+FROM north_american_cities
+WHERE country LIKE "Mexico"
+ORDER BY population DESC
+LIMIT 2;
+~~~
+## 5. List the third and fourth largest cities (by population) in the United States and their population
+~~~sql
+SELECT City, population
+FROM north_american_cities
+WHERE Country = 'United States'
+ORDER BY Population DESC
+LIMIT 2 OFFSET 2;
+~~~
+
+# ExERCISE-6
+## 1. Find the domestic and international sales for each movie 
+~~~sql
+SELECT title, domestic_sales, international_sales 
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id;
+~~~
+## 2. Show the sales numbers for each movie that did better internationally rather than domestically
+~~~sql
+SELECT title, domestic_sales, international_sales
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id
+WHERE international_sales > domestic_sales;
+~~~
+## 3. List all the movies by their ratings in descending
+~~~sql
+SELECT title, rating
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id
+ORDER BY rating DESC;
+~~~
+ # EXERCISE-7
+ ## 1. Find the list of all buildings that have employees
+ ~~~sql
+~~~
+## 2. Find the list of all buildings and their capacity
+~~~sql
+~~~
+## 3. List all buildings and the distinct employee roles in each building (including empty buildings)
+~~~sql
 ~~~
